@@ -16,13 +16,13 @@ function unitTests() {
         }));
 }
 
-gulp.task('lint', function () {
-    return gulp.src(['src/**/*.js', 'tests/**/*.js'])
-        .pipe(plugins.eslint())
-        .pipe(plugins.eslint.format())
-        .pipe(plugins.eslint.failAfterError())
-        .pipe(plugins.jscs());
-});
+//gulp.task('lint', function () {
+//    return gulp.src(['src/**/*.js', 'tests/**/*.js'])
+//        .pipe(plugins.eslint())
+//        .pipe(plugins.eslint.format())
+//        .pipe(plugins.eslint.failAfterError())
+//        .pipe(plugins.jscs());
+//});
 
 gulp.task('coverage', function (done) {
     gulp.src(['src/**/*.js'])
@@ -70,4 +70,4 @@ gulp.task('compile', function () {
 
 gulp.task('build', plugins.sequence('browserify', 'compile'));
 gulp.task('test', plugins.sequence('coverage', 'build', 'test:integration'));
-gulp.task('default', plugins.sequence('lint', 'test'));
+gulp.task('default', plugins.sequence('test'));
