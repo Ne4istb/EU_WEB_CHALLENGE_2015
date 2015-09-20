@@ -1,4 +1,4 @@
-import {validate} from '../../src/parser.js';
+import {validate} from '../../site/src/parser.js';
 
 describe('Parser', () => {
 

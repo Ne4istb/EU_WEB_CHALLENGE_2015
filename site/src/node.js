@@ -9,7 +9,6 @@ class TreeNode {
         this.xmlns = 'http://www.w3.org/2000/svg';
         this.xlinkns = 'http://www.w3.org/1999/xlink';
 
-        this._nodeWidth = 100;
         this._nodeHeight = 50;
         this._verticalOffset = 150;
     }

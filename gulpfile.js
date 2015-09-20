@@ -14,7 +14,7 @@ function unitTests() {
 }
 
 gulp.task('lint', function () {
-    return gulp.src(['src/**/*.js', 'tests/**/*.js'])
+    return gulp.src(['site/src/**/*.js', 'tests/**/*.js'])
         .pipe(plugins.eslint())
         .pipe(plugins.eslint.format())
         .pipe(plugins.eslint.failAfterError())
@@ -33,14 +33,14 @@ gulp.task('browserify', function () {
     })
         .bundle()
         .pipe(source('lib-build.js'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('site/dist'));
 });
 
 gulp.task('compile', function () {
-    return gulp.src('dist/lib-build.js')
+    return gulp.src('site/dist/lib-build.js')
         .pipe(plugins.uglify())
         .pipe(plugins.rename({ extname: '.min.js' }))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('site/dist'));
 });
 
 gulp.task('build', plugins.sequence('browserify', 'compile'));

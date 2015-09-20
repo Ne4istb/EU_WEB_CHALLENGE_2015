@@ -1,5 +1,5 @@
-import {parse} from '../../src/parser.js';
-import TreeNode from '../../src/node.js';
+import {parse} from '../../site/src/parser.js';
+import TreeNode from '../../site/src/node.js';
 
 describe('Parser', () => {
     describe('parse() method', () => {

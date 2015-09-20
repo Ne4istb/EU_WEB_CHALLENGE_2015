@@ -10,7 +10,6 @@ function clearErrors() {
     document.getElementById('error').textContent = '';
 }
 
-
 function removeChildren(node) {
     while (node.lastChild) {
         node.removeChild(node.lastChild);
@@ -30,10 +29,11 @@ function getDataFromTextArea() {
         var value = JSON.parse(valueStr);
     }
     catch (error) {
-        throw onError('CannotParseInput');
+        onError('CannotParseInput');
+        return null;
     }
 
-    return Promise.resolve(value);
+    return value;
 }
 
 let currentTree;
@@ -89,30 +89,40 @@ function onError(error) {
     document.getElementById('error').textContent = errorMessage;
 }
 
-function processData() {
+function processData(data) {
+
+    try {
+        validate(data);
+    }
+    catch (err) {
+        onError(err);
+        return;
+    }
+
+    let tree = parse(data);
+    storeTree(tree);
+    draw(tree);
+}
+
+function process() {
 
     clearErrors();
     clearSvg();
 
-    getDataFromTextArea()
-    .then(validate)
-    .then(parse)
-    .then(storeTree)
-    .then(draw)
-    .catch(onError);
+    var data = getDataFromTextArea();
+
+    if (data) {
+        processData(data);
+    }
 }
 
 function init() {
 
-    document.getElementById('processBtn').onclick = processData;
+    let data = fetchData();
+    fillTextArea(data);
+    processData(data);
 
-    fetchData()
-    .then(fillTextArea)
-    .then(validate)
-    .then(parse)
-    .then(storeTree)
-    .then(draw)
-    .catch(onError);
+    document.getElementById('processBtn').onclick = process;
 }
 
 init();

@@ -1,7 +1,9 @@
 export function fetchData() {
 
-    //TODO: Added comment or get rid of promises
-    var result = [
+    // It is the module for fetching data from some source.
+    // Here is just hardcoded data.
+
+    return [
         { name: 'Cars', left: 1, right: 18 },
         { name: 'Fast', left: 2, right: 11 },
         { name: 'Red', left: 3, right: 6 },
@@ -12,6 +14,4 @@ export function fetchData() {
         { name: 'Lada', left: 13, right: 14 },
         { name: 'Polonez', left: 15, right: 16 }
     ];
-
-    return Promise.resolve(result);
 }

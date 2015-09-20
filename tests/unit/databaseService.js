@@ -1,4 +1,4 @@
-import {fetchData} from '../../src/databaseService.js';
+import {fetchData} from '../../site/src/databaseService.js';
 
 describe('Database service', () => {
     describe('fetchData() method', () => {
@@ -17,9 +17,7 @@ describe('Database service', () => {
                 { name: 'Polonez', left: 15, right: 16 }
             ];
 
-            fetchData().then((result)=> {
-                expect(result).to.deep.equal(expected);
-            });
+            expect(fetchData()).to.deep.equal(expected);
         });
     });
 });

@@ -1,5 +1,5 @@
 import config from './config';
-import sdk from './src';
+import sdk from './site/src';
 
 ((root) => {
     let sdkRef = root[config.globalName];
