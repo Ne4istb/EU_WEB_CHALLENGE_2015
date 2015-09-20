@@ -1,5 +1,5 @@
 import {parse} from '../../src/parser.js';
-import Node from '../../src/node.js';
+import TreeNode from '../../src/node.js';
 
 describe('Parser', () => {
 	describe('parse() method', () => {
@@ -10,7 +10,7 @@ describe('Parser', () => {
 				{ name: 'Test', left: 1, right: 2 }
 			];
 
-			let expected = new Node('Test', []);
+			let expected = new TreeNode('Test', []);
 
 			expect(parse(data)).to.deep.equal(expected);
 
@@ -24,11 +24,11 @@ describe('Parser', () => {
 				{ name: 'Item 2', left: 4, right: 5 }
 			];
 
-			let expected = new Node(
+			let expected = new TreeNode(
 			'Test',
 			[
-				new Node('Item 1', []),
-				new Node('Item 2', [])
+				new TreeNode('Item 1', []),
+				new TreeNode('Item 2', [])
 			]
 			);
 
@@ -45,10 +45,10 @@ describe('Parser', () => {
 				{ name: 'Sub Sub Item 1-1-1', left: 4, right: 5 }
 			];
 
-			let expected = new Node('Test', [
-				new Node('Item 1', [
-					new Node('Sub Item 1-1', [
-						new Node('Sub Sub Item 1-1-1', [])
+			let expected = new TreeNode('Test', [
+				new TreeNode('Item 1', [
+					new TreeNode('Sub Item 1-1', [
+						new TreeNode('Sub Sub Item 1-1-1', [])
 					])
 				])
 			]);
@@ -74,20 +74,20 @@ describe('Parser', () => {
 				{ name: 'Sub Sub Item 4-1-1', left: 20, right: 21 }
 			];
 
-			let expected = new Node('Test', [
-				new Node('Item 1', [
-					new Node('Sub Item 1-1', []),
-					new Node('Sub Item 1-2', [])
+			let expected = new TreeNode('Test', [
+				new TreeNode('Item 1', [
+					new TreeNode('Sub Item 1-1', []),
+					new TreeNode('Sub Item 1-2', [])
 				]),
-				new Node('Item 2', [
-					new Node('Sub Item 2-1', []),
-					new Node('Sub Item 2-2', []),
-					new Node('Sub Item 2-3', [])
+				new TreeNode('Item 2', [
+					new TreeNode('Sub Item 2-1', []),
+					new TreeNode('Sub Item 2-2', []),
+					new TreeNode('Sub Item 2-3', [])
 				]),
-				new Node('Item 3', []),
-				new Node('Item 4', [
-					new Node('Sub Item 4-1', [
-						new Node('Sub Sub Item 4-1-1', [])
+				new TreeNode('Item 3', []),
+				new TreeNode('Item 4', [
+					new TreeNode('Sub Item 4-1', [
+						new TreeNode('Sub Sub Item 4-1-1', [])
 					])
 				])
 			]);
@@ -113,20 +113,20 @@ describe('Parser', () => {
 				{ name: 'Sub Sub Item 4-1-1', left: 20, right: 21 }
 			];
 
-			let expected = new Node('Test', [
-				new Node('Item 1', [
-					new Node('Sub Item 1-1', []),
-					new Node('Sub Item 1-2', [])
+			let expected = new TreeNode('Test', [
+				new TreeNode('Item 1', [
+					new TreeNode('Sub Item 1-1', []),
+					new TreeNode('Sub Item 1-2', [])
 				]),
-				new Node('Item 2', [
-					new Node('Sub Item 2-1', []),
-					new Node('Sub Item 2-2', []),
-					new Node('Sub Item 2-3', [])
+				new TreeNode('Item 2', [
+					new TreeNode('Sub Item 2-1', []),
+					new TreeNode('Sub Item 2-2', []),
+					new TreeNode('Sub Item 2-3', [])
 				]),
-				new Node('Item 3', []),
-				new Node('Item 4', [
-					new Node('Sub Item 4-1', [
-						new Node('Sub Sub Item 4-1-1', [])
+				new TreeNode('Item 3', []),
+				new TreeNode('Item 4', [
+					new TreeNode('Sub Item 4-1', [
+						new TreeNode('Sub Sub Item 4-1-1', [])
 					])
 				])
 			]);
@@ -162,18 +162,18 @@ describe('Parser', () => {
 				{ name: 'Polonez', left: 15, right: 16 }
 			];
 
-			let expected = new Node('Cars', [
-				new Node('Fast', [
-					new Node('Red', [
-						new Node('Ferrari', [])
+			let expected = new TreeNode('Cars', [
+				new TreeNode('Fast', [
+					new TreeNode('Red', [
+						new TreeNode('Ferrari', [])
 					]),
-					new Node('Yellow', [
-						new Node('Lamborghini', [])
+					new TreeNode('Yellow', [
+						new TreeNode('Lamborghini', [])
 					])
 				]),
-				new Node('Slow', [
-					new Node('Lada', []),
-					new Node('Polonez', [])
+				new TreeNode('Slow', [
+					new TreeNode('Lada', []),
+					new TreeNode('Polonez', [])
 				])
 			]);
 
@@ -193,5 +193,4 @@ describe('Parser', () => {
 		});
 
 	});
-
 });

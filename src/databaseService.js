@@ -1,4 +1,6 @@
 export function fetchData() {
+
+	//TODO: Added comment or get rid of promises
 	var result = [
 		{ name: 'Cars', left: 1, right: 18 },
 		{ name: 'Fast', left: 2, right: 11 },

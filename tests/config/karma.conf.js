@@ -3,7 +3,7 @@ module.exports = function (config) {
         basePath: '../../',
         frameworks: ['mocha', 'browserify'],
         files: [
-            'dist/lib-build.min.js',
+            'dist/lib-build.js',
             'tests/config/setup.js',
             'tests/integration/**/*.js'
         ],
